@@ -49,7 +49,7 @@ jobs:
         files: |
           *.zip
           *.vsix
-    - name: Upload Artifacts
+    - name: Upload Artifacts (server)
       uses: actions/upload-artifact@v1
       with:
         name: artifacts (server)
@@ -92,7 +92,7 @@ jobs:
       uses: softprops/action-gh-release@v0.1.5
       with:
         files: ./artifacts/**
-    - name: Upload Artifacts
+    - name: Upload Artifacts (server)
       uses: actions/upload-artifact@v1
       with:
         name: artifacts (server)
@@ -135,7 +135,7 @@ jobs:
       uses: softprops/action-gh-release@v0.1.5
       with:
         files: ./artifacts/**
-    - name: Upload Artifacts
+    - name: Upload Artifacts (server)
       uses: actions/upload-artifact@v1
       with:
         name: artifacts (server)
