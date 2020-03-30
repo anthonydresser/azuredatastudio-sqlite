@@ -19,8 +19,9 @@ jobs:
     - name: Install Dependencies
       run: yarn --frozen-lockfile
     - name: Create Package
-      run: gulp package
+      run: yarn package
     - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v0.1.5
       with:
         files: |
@@ -40,8 +41,9 @@ jobs:
     - name: Install Dependencies
       run: yarn --frozen-lockfile
     - name: Create Package
-      run: gulp package
+      run: yarn package
     - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v0.1.5
       with:
         files: |
@@ -61,8 +63,9 @@ jobs:
     - name: Install Dependencies
       run: yarn --frozen-lockfile
     - name: Create Package
-      run: gulp package
+      run: yarn package
     - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v0.1.5
       with:
         files: |
