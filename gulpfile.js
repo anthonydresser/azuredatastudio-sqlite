@@ -48,8 +48,8 @@ const version = require('./package.json').version;
 
 gulp.task('zip', async () => {
     const files = await vsce.listFiles();
-    return gulp.src(files)
-        .pipe(zip(`azuredatastudio-sqlite-${version}-${platform}-${runtime}-${runTimeVersion}.zip`))
+    return gulp.src(files, { base: './' })
+        .pipe(zip(`azuredatastudio-sqlite-${version}-${platform}-${runtime}-${runTimeVersion}.zip`, {  }))
         .pipe(gulp.dest('.'));
 });
 
