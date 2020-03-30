@@ -1,0 +1,70 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    env:
+      CHILD_CONCURRENCY: "1"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10
+    - name: Install Dependencies
+      run: yarn --frozen-lockfile
+    - name: Create Package
+      run: gulp package
+    - name: Create Release
+      uses: softprops/action-gh-release@v0.1.5
+      with:
+        files: |
+          *.zip
+          *.vsix
+
+  windows:
+    runs-on: windows-latest
+    env:
+      CHILD_CONCURRENCY: "1"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10
+    - name: Install Dependencies
+      run: yarn --frozen-lockfile
+    - name: Create Package
+      run: gulp package
+    - name: Create Release
+      uses: softprops/action-gh-release@v0.1.5
+      with:
+        files: |
+          *.zip
+          *.vsix
+
+  darwin:
+    runs-on: macos-latest
+    env:
+      CHILD_CONCURRENCY: "1"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10
+    - name: Install Dependencies
+      run: yarn --frozen-lockfile
+    - name: Create Package
+      run: gulp package
+    - name: Create Release
+      uses: softprops/action-gh-release@v0.1.5
+      with:
+        files: |
+          *.zip
+          *.vsix
