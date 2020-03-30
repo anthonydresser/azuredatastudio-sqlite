@@ -1,5 +1,5 @@
 node_modules
 dist
 out
-azuredatastudio-sqlite.zip
-azuredatastudio-sqlite.vsix
+*.zip
+*.vsix
