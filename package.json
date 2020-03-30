@@ -1,0 +1,113 @@
+{
+  "name": "sqlite",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "publisher": "microsoft",
+  "version": "1.0.0",
+  "main": "./out/index",
+  "engines": {
+    "vscode": "*",
+    "azdata": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "activationEvents": [
+    "onConnect:sqlite"
+  ],
+  "author": "anthonydresser",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/azdata": "^1.15.1",
+    "@types/node": "12.11.7",
+    "azdata": "^1.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.9.0-beta",
+    "vscode-nls-dev": "^3.3.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "vscode-sqlite3": "^4.0.10"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "sqlite.createFile",
+        "title": "%sqlite.createFile%"
+      }
+    ],
+    "connectionProvider": {
+      "providerId": "sqlite",
+      "displayName": "Sqlite",
+      "connectionOptions": [
+        {
+          "specialValueType": "serverName",
+          "isIdentity": true,
+          "name": "file",
+          "displayName": "File",
+          "groupName": "Source",
+          "valueType": "string",
+          "defaultValue": null,
+          "objectType": null,
+          "categoryValues": null,
+          "isRequired": true,
+          "isArray": false
+        },
+        {
+          "specialValueType": "databaseName",
+          "isIdentity": true,
+          "name": "database",
+          "displayName": "not used",
+          "groupName": "Source",
+          "valueType": "string",
+          "defaultValue": null,
+          "objectType": null,
+          "categoryValues": null,
+          "isRequired": false,
+          "isArray": false
+        },
+        {
+          "specialValueType": "userName",
+          "isIdentity": true,
+          "name": "user",
+          "displayName": "not used",
+          "groupName": "Security",
+          "valueType": "string",
+          "defaultValue": null,
+          "objectType": null,
+          "categoryValues": null,
+          "isRequired": false,
+          "isArray": false
+        },
+        {
+          "specialValueType": "password",
+          "isIdentity": true,
+          "name": "password",
+          "displayName": "not used",
+          "groupName": "Security",
+          "valueType": "password",
+          "defaultValue": null,
+          "objectType": null,
+          "categoryValues": null,
+          "isRequired": false,
+          "isArray": false
+        },
+        {
+          "specialValueType": "connectionName",
+          "isIdentity": true,
+          "name": "connectionName",
+          "displayName": "not used",
+          "groupName": "Source",
+          "valueType": "string",
+          "defaultValue": null,
+          "objectType": null,
+          "categoryValues": null,
+          "isRequired": false,
+          "isArray": false
+        }
+      ]
+    }
+  }
+}
