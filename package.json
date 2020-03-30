@@ -1,8 +1,8 @@
 {
-  "name": "sqlite",
-  "displayName": "%displayName%",
+  "name": "azuredatastudio-sqlite",
+  "displayName": "Sqlite",
   "description": "%description%",
-  "publisher": "microsoft",
+  "publisher": "anthonydresser",
   "version": "1.0.0",
   "main": "./out/index",
   "engines": {
@@ -10,7 +10,9 @@
     "azdata": "*"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "./node_modules/.bin/tsc",
+    "dist": "./node_modules/.bin/webpack"
   },
   "activationEvents": [
     "onConnect:sqlite"
