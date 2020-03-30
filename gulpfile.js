@@ -44,19 +44,18 @@ gulp.task('compile', gulp.series('clean', () => {
 const runtime = getRuntime();
 const runTimeVersion = getVersion();
 const platform = process.platform;
-const version = require('./package.json').version;
 
 gulp.task('zip', async () => {
     const files = await vsce.listFiles();
     return gulp.src(files, { base: './' })
-        .pipe(zip(`azuredatastudio-sqlite-${version}-${platform}-${runtime}-${runTimeVersion}.zip`, {  }))
+        .pipe(zip(`azuredatastudio-sqlite-${platform}-${runtime}-${runTimeVersion}.zip`, {  }))
         .pipe(gulp.dest('./artifacts'));
 });
 
 gulp.task('vsix', async () => {
     await vsce.createVSIX();
     return gulp.src('*.vsix', {  })
-        .pipe(rename(`azuredatastudio-sqlite-${version}-${platform}-${runtime}-${runTimeVersion}.vsix`))
+        .pipe(rename(`azuredatastudio-sqlite-${platform}-${runtime}-${runTimeVersion}.vsix`))
         .pipe(gulp.dest('./artifacts'));
 });
 
