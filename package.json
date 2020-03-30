@@ -12,7 +12,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "./node_modules/.bin/tsc",
-    "dist": "./node_modules/.bin/webpack"
+    "dist": "./node_modules/.bin/webpack",
+    "zip": "./node_moudles/.bin/7z",
+    "vsix": "./node_modules/vsce"
   },
   "activationEvents": [
     "onConnect:sqlite"
@@ -24,11 +26,13 @@
     "@types/node": "12.11.7",
     "azdata": "^1.0.0",
     "copy-webpack-plugin": "^5.1.1",
+    "gulp": "^4.0.2",
+    "gulp-webpack": "^1.5.0",
     "ts-loader": "^6.2.2",
     "typescript": "^3.9.0-beta",
+    "vsce": "^1.74.0",
     "vscode-nls-dev": "^3.3.1",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^4.42.1"
   },
   "dependencies": {
     "vscode-sqlite3": "^4.0.10"
