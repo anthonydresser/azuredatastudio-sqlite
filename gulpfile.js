@@ -50,14 +50,14 @@ gulp.task('zip', async () => {
     const files = await vsce.listFiles();
     return gulp.src(files, { base: './' })
         .pipe(zip(`azuredatastudio-sqlite-${version}-${platform}-${runtime}-${runTimeVersion}.zip`, {  }))
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('./artifacts'));
 });
 
 gulp.task('vsix', async () => {
     await vsce.createVSIX();
-    return gulp.src('*.vsix')
+    return gulp.src('*.vsix', {  })
         .pipe(rename(`azuredatastudio-sqlite-${version}-${platform}-${runtime}-${runTimeVersion}.vsix`))
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('./artifacts'));
 });
 
 gulp.task('package', gulp.series('compile', gulp.parallel('zip', 'vsix')));
