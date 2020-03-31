@@ -3,7 +3,7 @@
   "displayName": "Sqlite",
   "description": "%description%",
   "publisher": "anthonydresser",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "./out/index",
   "repository": {
     "type": "git",
