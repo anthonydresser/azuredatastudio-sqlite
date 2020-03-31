@@ -3,8 +3,11 @@
   "displayName": "Sqlite",
   "description": "%description%",
   "publisher": "anthonydresser",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./out/index",
+  "extensionKind": [
+    "workspace"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/anthonydresser/azuredatastudio-sqlite.git"
