@@ -20,15 +20,7 @@ function getVersion() {
 }
 
 function rimraf(path) {
-    return new Promise((res, rej) => {
-        rimrafcb(path, e => {
-            if (e) {
-                rej(e);
-            } else {
-                res();
-            }
-        });
-    });
+    return new Promise((res, rej) => rimrafcb(path, e => e ? rej(e) : res()));
 }
 
 gulp.task('clean', () => {
