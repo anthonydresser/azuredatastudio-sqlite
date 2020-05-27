@@ -33,10 +33,12 @@ export class QueryProvider implements azdata.QueryProvider {
 			const content = (await vscode.workspace.openTextDocument(vscode.Uri.parse(ownerUri))).getText();
 			this.connections.databases[ownerUri].all(content, (err, rows: { [column: string]: string | number | null }[]) => {
 				this.results[ownerUri] = rows;
+				const resultSet = { id: 0, complete: true, rowCount: rows.length, batchId: 0, columnInfo: Object.keys(rows[0]).map(v => ({ columnName: v })) };
+				const batchSet = { id: 0, resultSetSummaries: [resultSet] };
 				this.onBatchStart!({ batchSummary: { id: 0 } as any, ownerUri });
-				this.resultSetAvailable!({ ownerUri, resultSetSummary: { id: 0, complete: true, rowCount: rows.length, batchId: 0, columnInfo: Object.keys(rows[0]).map(v => ({ columnName: v })) as any } });
-				this.onBatchComplete!({ batchSummary: { id: 0 } as any, ownerUri });
-				this.queryComplete!({ ownerUri } as any);
+				this.resultSetAvailable!({ ownerUri, resultSetSummary: resultSet as any });
+				this.onBatchComplete!({ batchSummary: batchSet as any, ownerUri });
+				this.queryComplete!({ ownerUri, batchSummaries: [batchSet] as any });
 			});
 		} else {
 			throw new Error('Connection not found');
