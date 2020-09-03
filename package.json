@@ -3,7 +3,7 @@
   "displayName": "Sqlite",
   "description": "%description%",
   "publisher": "anthonydresser",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "main": "./out/index",
   "extensionKind": [
     "workspace"
